@@ -1,4 +1,8 @@
 package stackQueue;
+
+import java.util.Scanner;
+import java.util.Stack;
+
 /**
  * 설명
  *
@@ -17,6 +21,27 @@ package stackQueue;
  * */
 public class StackQueue4 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String tmp = sc.next();
 
+        Stack<Integer> stack = new Stack<>();
+        for(int i=0; i<tmp.length(); i++) {
+            if(Character.isDigit(tmp.charAt(i))) {
+                stack.push(tmp.charAt(i) - 48);
+            } else {
+                int rt = stack.pop();
+                int lt = stack.pop();
+                if(tmp.charAt(i) == '+') {
+                    stack.push(lt+rt);
+                } else if(tmp.charAt(i) == '-') {
+                    stack.push(lt - rt);
+                } else if(tmp.charAt(i) == '*') {
+                    stack.push(lt * rt);
+                } else if(tmp.charAt(i) == '/') {
+                    stack.push(lt / rt);
+                }
+            }
+        }
+        System.out.println(stack.get(0));
     }
 }
