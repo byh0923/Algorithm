@@ -26,10 +26,6 @@ public class MergeSortedArray {
             p--;
         }
 
-
-        for (int num : nums1) {
-            System.out.println(num);
-        }
     }
 
     public static void main(String[] args) {
